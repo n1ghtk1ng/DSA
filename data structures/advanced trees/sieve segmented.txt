@@ -1,0 +1,15 @@
+The classical 'sieve of eratosthenes' generates prime no. starting from 1 upto a limit. 
+However if you want to sieve prime numbers between two given numbers, segmented sieve is used.
+ For example if you want prime numbers between say 125 and 150, 
+you need not sieve primes upto 150 and then check how many of them are above 125. 
+The approach is basically to create a bool array of size 25 (150-125) in this case. 
+i-th index of your bool array will correspond to (125+i) number. 
+Then mark non prime no. as follows start from (125/2)*2=124, 
+now begin from 126 (124+2 because you need primes greater than 125 )and remove all no. at a distance of 2,
+ ie 126,128,130...150. () This removes all even no. 
+Then start from (125/3)*3=123,now begin from 126 and remove all elements at distance 3,ie 126,129,132,...150. 
+This removes all multiples of 3. Proceed in similar fashion removing all multiples of prime upto sqrt(150).
+
+To be more generalized, given two no. say m and n, prime no. between m and n can sieved by creating a bool array of size n-m. 
+i th index of the array will correspond to (m+i) no. 
+Sieve all primes by using primes up-to sqrt(n) by doing (m/prime)*prime following the fashion shown in example above

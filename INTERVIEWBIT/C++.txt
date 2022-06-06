@@ -1,0 +1,247 @@
+1)In C++, if we do not write our own, then compiler automatically creates 
+a default constructor,
+a copy constructor 
+and a assignment operator for every class.
+
+
+2)
+In C++, a Copy Constructor may be called in following cases: 
+1. When an object of the class is returned by value.
+2. When an object of the class is passed (to a function) by value as an argument.
+3. When an object is constructed based on another object of the same class.
+4. When compiler generates a temporary object.
+
+3)
+class test{
+
+private:
+    int a,b;
+public:
+    test(){}
+    test(int x,int y):a(x),b(y){}
+    void print(){
+        cout<<" a = "<<a<<" b = "<<b<<endl;
+    }
+
+};
+
+
+int main(){
+
+test t={1,2}; // for this we require the constructor with same no of arguments otherwise error will come 
+
+t.print();
+
+return 0;
+}
+
+
+4) by default all the memenrs of the class are private
+5)
+class Point {
+public:
+    Point() { cout << "Constructor called"; }
+};
+ 
+int main()
+{
+   Point t1, *t2;
+   return 0;
+}
+Only one object t1 is constructed here. t2 is just a pointer variable, not an object hence constructor isnot called for t2.
+
+6)
+Copy constructor is called when a new object is created from an existing object, as a copy of the existing object. 
+And assignment operator is called when an already initialized object is assigned a new value from another existing object.
+
+class Test
+{
+public:
+   Test() {}
+   Test(const Test &t)
+   {
+      cout<<"Copy constructor called "<<endl;
+   }
+   Test& operator = (const Test &t)
+   {
+      cout<<"Assignment operator called "<<endl;
+   }
+};
+ 
+int main()
+{
+  Test t1, t2;
+  t2 = t1;
+  Test t3 = t1;
+  getchar();
+  return 0;
+}
+Output:
+Assignment operator called
+Copy constructor called
+
+7)
+Point *t1, *t2;   // No constructor call
+t1 = new Point(10, 15);  // Normal constructor call
+t2 = new Point(*t1);   // Copy constructor call 
+Point t3 = *t1;  // Copy Constructor call
+Point t4;   // Normal Constructor call
+t4 = t3;   // Assignment operator call 
+
+8)
+class test{
+public:
+    int a,b;
+};
+
+
+int main(){
+
+test t={1,2};  // will work if members are public else we need to define the constructor
+cout<<t.a<<" "<<t.b<<endl;
+
+return 0;
+}
+
+
+9) if we write a param constructor(or copy constructor) and create object trying to invoke default constructor , it will result in compile time
+error. so we need to define default constructor as well.
+
+If we write any constructor, then compiler doesn't create the default constructor. It is not true other way,
+i.e., if we write a default or parameterized constructor, then compiler creates a copy constructor. 
+ 
+Compiler creates a copy constructor if we don't write our own. Compiler writes it even if we have written other constructors in class.
+
+10)
+Unlike new, malloc() doesn't call constructor
+If we replace malloc() with new, the constructor is called.
+
+class Test
+{
+public:
+   Test()
+   { cout << "Constructor called"; }
+};
+ 
+int main()
+{
+    Test *t = (Test *) malloc(sizeof(Test)); // no output
+    return 0;
+}
+
+11)
+class Test
+{
+public:
+      Test() { cout << "Hello from Test() "; }
+} a;
+ 
+int main()
+{
+    cout << "Main Started ";
+    return 0;
+}
+There is a global object 'a' which is constructed before the main functions starts, 
+so the constructor for a is called first, then main()' execution begins.
+
+
+11)
+https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/
+We must use initializer list in a constructor when
+1)There is a reference variable in class
+2)There is a constant variable in class
+3)There is an object of another class. And the other class doesn't have default constructor.
+
+12)
+1) Virtual constructors don't make sense, it is meaningless to the C++ compiler to create an object polymorphically.
+2) Constructors can be private, for example, we make copy constructors private when we don't want to create copyable objects. The reason for not making copyable object could be to avoid shallow copy. 
+3) Constructors are automatically called by new operator, we can in-fact pass parameters to constructors.
+
+13)
+#include<iostream>
+using namespace std;
+  
+class Test
+{
+public:
+  Test();
+};
+  
+Test::Test()  {
+    cout << " Constructor Called. ";
+}
+  
+void fun() {
+  static Test t1; //Note that t is static in fun(), so constructor is called only once.
+}
+  
+int main() {
+    cout << " Before fun() called. ";
+    fun();
+    fun();
+    cout << " After fun() called. ";  
+    return 0;
+}
+
+14) Constructors have __no___ return type.
+15) Implicit return type of a class constructor is: class type itself
+
+16)
+#include<iostream>
+using namespace std;
+ 
+class Test
+{
+   /* Class data members */
+public:
+   Test(Test &t) { /* Copy data members from t*/}
+   Test()        { /* Initialize data members */ }
+};
+ 
+Test fun()
+{
+    cout << "fun() Called\n";
+    Test t;
+    return t;
+}
+ 
+int main()
+{
+    Test t1;
+    Test t2 = fun();
+    return 0;
+}
+The function fun() returns by value. 
+So the compiler creates a temporary object which is copied to t2 using copy constructor in the original program 
+(The temporary object is passed as an argument to copy constructor). 
+The reason for compiler error is, compiler created temporary objects cannot be bound to non-const references and the original program tries to do that. 
+It doesn’t make sense to modify compiler created temporary objects as they can die any moment.
+
+
+17)
+If a class has a constructor which can be called with a single argument, then this constructor becomes conversion constructor because such a constructor allows automatic conversion to the class being constructed. A conversion constructor can be called anywhere when the type of single argument is assigned to the object
+class Test
+{
+private:
+    int x;
+public:
+    Test(int i)
+    {
+        x = i;
+        cout << "Called" << endl;
+    }
+};
+ 
+int main()
+{
+    Test t(20);
+    t = 30; // conversion constructor is called here.
+    return 0;
+}
+Output:
+
+Called
+Called
+
+
+// https://www.geeksforgeeks.org/difference-header-file-library/

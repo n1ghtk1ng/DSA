@@ -1,0 +1,192 @@
+string tokennizer,
+wave sort,
+read min pages,painter partition,agg cows,
+string stream,vector initialization and important functions, stoi,map<int,int>m[100][100] meaning,vector<vector<int> > vs vctor<int>v[1000],
+runlength decoding,
+pigeonhole
+fast and optimized sieve,kdthprime and related to it spoj questions
+histogram,rainwater trapping
+max j-i,a[i]>a[j]
+merge intervals
+max xor,min xor,
+palindromic piars
+kth factorial sequence(eg. 1 2 3  --> 6 ---> 3 2 1)
+median of 2 sorted arays
+maximum product subarray
+maximum sum subarray
+90 degree rotate
+ones and zeroes bfs,
+zeroes and ones hashing
+ways to decode
+minimum rooms(greedy)
+quadruplets
+one number missing and one repeating(1 to n) (no extra space)
+
+Activity Selection Problem
+Egyptian Fraction
+Job Sequencing Problem
+Huffman Coding
+Efficient Huffman Coding for sorted input
+
+merge k sorted arrays
+minimum number of jumps to reach end
+no of ways to jump to reach end
+minimum number of jumps to reach end(-ve values and bfs question) 
+K'th Smallest/Largest Element in Unsorted Array | Set 1 - GeeksforGeeks
+Maximum Length Bitonic Subarray | Set 1 (O(n) tine and O(n) space) - GeeksforGeeks
+Count number of ways to reach a given score in a game - GeeksforGeeks
+
+coin change( with permutations and without permutations)
+Lexicographically n-th permutation of a string - GeeksforGeeks
+Minimum Distance Room - <CODESHALA> PPS - Problem of the day | HackerEarth (dp solution,dfs vs bfs,bfs from where)
+spoj bitmap
+
+C qsort() vs C++ sort() - GeeksforGeeks
+Given a number N and K, find the maximum possible number after deleting K digits from the number N.(greedy)
+
+word break,word wrap dp
+2-Pointer--.
+You are given an array A which contains only 1's and 0's and you are given an integer M, which signifies number of flip allowed.
+find the length of maximum continous subarray of 1's after applying at most M flip operation. Flip operation means converting 0 to 1 and vice versa.
+Given a string S, find the maximum length of substring which contains unique characters
+
+coding blocks-->
+number theory, and important algos, sequences
+
+dp--->
+
+Fibonacci numbers
+Binomial Coefficient
+Longest Common Subsequence
+Longest Repeated Subsequence
+Largest Sum Contiguous Subarray
+Ugly numbers
+Maximum size square sub-matrix with all 1s
+Longest Increasing Subsequence
+Min Cost Path
+Coin change problem
+Minimum number of edits ( operations ) require to convert string 1 to string 2
+Cutting a Rod
+Subset Sum Problem
+Minimum number of jumps to reach end
+Assembly line scheduling
+Maximum Sum Increasing Subsequence
+Maximum Length Chain of Pairs
+Longest Common Substring
+Count all possible paths from top left to bottom right of a mXn matrix
+nth Catalan Number
+Count number of ways to reach a given score in a game
+Count Possible Decodings of a given Digit Sequence
+Count all possible walks from a source to a destination with exactly k edges
+Weighted job scheduling
+Minimum number of coins that make a given value
+Count number of ways to jump to reach end(all questions related to that)
+Palindrome Partitioning
+Word Wrap Problem
+Mobile Numeric Keypad Problem
+Maximum profit by buying and selling a share at most k times
+next permutation in o(n) witout stl
+january circuits dp question
+kmp algo,rabinkarp,
+modulo inverse,exended euclidean,gcd,etc..
+capture region,all possible parenthesis pairs, 
+codeshala permutation--> 4
+			SCS
+			--> output--> 1 4 2 3 
+
+print matrix in spiral,zig-zag,antispiral,etc..
+maximum area under histogram(all approaches)
+divisible by 8, maximum points in a straight line
+NEXT PERMUATION AND KTH FACTORIAL
+print all subsets with given sum
+bipartite graph
+Lexicographic rank of a permutation
+Egg dropping
+Length of longest balanced parentheses prefix
+Topological Sorting
+minimum no of ways to reach a cell on chess board by knight (any direction move is possible)
+consecutive nos(121,123,98,89,78,etc..) in a given range(bfs)
+Given a tree with N nodes and N-1 edges, find out the maximum height of tree when any node in the tree is considered as the root of the tree.
+Minimum Initial Points to Reach Destination
+How many minimum numbers from fibonacci series are required such that sum of numbers should be equal to a given Number N .
+You are given three prime integers A,B and C , and a number K(may or maynot be prime). Your task is to find first K(smallest) numbers which have only A,B,C or a combination of them as their prime factors.
+longest bst in a binary tree
+
+
+Moore algo
+find kth largest element
+2 elements odd , rest even times in the array
+lowest substring length with value greater than given value 
+
+radix sort,circular sort,balanced parenthesis
+
+There are N coins  (Assume N is even) in a line. Two players take turns to take a coin from one of the ends of the line until there are no more coins left. The player with the larger amount of money wins. Assume that you go first.
+Each player tries its best to get maximum amount of money.
+Find the maximum amount of money you can win
+
+You are given a unweighted rooted tree containing N nodes in which each node can have any number of childrens.Find the maximum distance between two nodes.
+Distance between two nodes is the number of edges in the path between two nodes.
+Nodes are numbered from 0 to N-1
+
+diameter of undirected tree using 2 bfs
+median of an array--> kth position number after merging 2 sorted arrays
+optimal game strategy using one time min-max only
+diameter of n-ary tree(using vector and adj list)
+SCS string question
+painter partition problem
+
+
+matrix sorted row wise (find median of k sorted arrays)
+2 4 6 8 10
+4 14 16 26 30
+10 12 14 16 13
+
+search in rotated sorted array
+
+longest palindromic subsequence and substring
+minimum-insertions-to-form-a-palindrome
+Minimum characters to be added at front to make string palindrome
+Minimum number of Appends needed to make a string palindrome(i.e. at back of string only)
+roman to integer
+integer to roman
+
+
+connect nodes on same level(bfs)
+complete binary tree()
+check if a one tree is subtree of another tree
+find all nodes at height k from leaf nodes;
+sliding window
+k largest element in n sorted arrays
+
+loop in circular linked list
+convert a binary tree to a doubly linked list , circular doubly linked list
+3 nos in a bst
+
+travelling salesman problem
+unique permutations tushar roy method
+
+stock problem(all variations)
+jumps problem(-ve jumps allowed)
+
+inorder traversal without recursion and without stack
+painter partition problem (dp and recursion)
+
+Construct the full k-ary tree from its preorder traversal
+Find the first circular tour that visits all petrol pumps
+
+catalan + chords dp
+
+longest ap in sorted and unsorted array
+Count of n digit numbers whose sum of digits equals to given sum
+Compute sum of digits in all numbers from 1 to n
+
+stock problem(all variations),regular expressions,skyline problem
+Largest area of rectangle with permutations
+Largest area of rectangle (dp using histogram)
+
+min jumps(o(n),o(n^2))
+Dungeon princess
+
+longest path between any pair of vertices
+minimum-characters-added-front-make-string-palindrome
+https://www.nayuki.io/page/next-lexicographical-permutation-algorithm

@@ -1,0 +1,7 @@
+Day-4 : Segment Trees
+Segment Trees with Lazy Propagation Code
+segment_t.cpp
+ 
+PROBLEMS
+GSS1,GSS3 (Spoj)
+COINFLIP (Codechef)

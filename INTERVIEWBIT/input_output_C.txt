@@ -1,0 +1,288 @@
+1.In C, scanf returns the no. of inputs it has successfully read
+e.g. char arr[100];
+    printf("%d", scanf("%s", arr));  --> prints 1
+
+2.we can print “%” using “%%”
+printf("%%"); ->prints %
+
+3.We can also print “%” using below.
+
+printf("%c", '%');
+printf("%s", "%");
+
+printf(" \"GEEKS %% FOR %% GEEKS\"") -> prints "GEEKS % FOR % GEEKS" (with quotes)
+
+4.difference between printf & puts is that puts appends new line character at end of output but printf does not.
+
+5.run below code for clarification on how input buffer works-->
+
+{char str[100],s[100];
+scanf("%s",str);
+char ch;
+
+printf("%s\n",str);
+//scanf("%s",str);
+ch=getchar();
+gets(str);
+printf("%s",str);
+puts(str);
+printf("aman");
+}
+
+6. difference between scanf and gets->
+The basic difference ,
+
+scanf() ends taking input upon encountering a whitespace, newline or EOF
+
+gets() considers a whitespace as a part of the input string and ends the input upon encountering newline or EOF.
+
+
+
+
+7. scanf("%s\n",message) does not end taking input upon encountering a whitespace, newline. "%s\n" causes scanf() to 
+1) scan in all white-space input(before input) and discard them 
+2) scan in all non-white-space input and save them to message, finally appending '\0' 
+3) scan in all white-space input(after input ) and discard them until encountering a non-white-space char,
+which is put back into stdin for the next IO call
+
+8. scanf("%s",message) -->
+1) scan in all white-space input(before input) and discard them 
+2) scan in all non-white-space input and save them to message, finally appending '\0' 
+3) after encountering first white space input (after taking the input),it puts back into stdin for the next IO call (does not remove spaces unlike scanf("%d\n",str));
+
+gets() is risky to use!
+gets() doesn't do any array bound testing and should not be used.
+it suffers from Buffer Overflow as gets() doesn’t do any array bound testing. gets() keeps on reading until it sees a newline character. 
+
+9. scanf("%4s", str);
+Read maximum 4 characters from console.
+#include <stdio.h>
+
+int main()
+{
+    char str[50] = {0};
+    scanf("%4s", str);
+    printf(str);  --> str="geeksquiz"  --> prints "geek"
+    getchar();
+    return 0;
+}
+
+10)  .* means The precision is not specified in the format string, but as an 
+additional integer value argument preceding the argument that has to be formatted.
+int main()
+{
+    char *s = "Geeks Quiz";
+    int n = 7;
+    printf("%.*s", n, s);  --> prints "Geeks Q"
+    return 0;
+}
+
+11) The printf function returns the number of characters successfully printed on the screen. (dont count '\0');
+
+printf("%d", printf("%d", 1234));  -> prints 12344 (first inner printf runs and prints 1234 thn outer printf prints 4)
+
+12) The return type of getchar() is int to accommodate EOF which indicates failure:
+
+13) In C, if a function name is used without parentheses, 
+the reference to the function name simply generates a pointer to the function, which is then discarded.
+So the above program would compile but won’t print anything.
+
+int foo(int a)
+{
+ printf("%d",a);
+ return 0;
+}
+ 
+int main()
+{
+ foo;
+ return 0;
+}
+
+14) 
+As per C standard C11, all the arguments of printf() are evaluated irrespective of whether they get printed or not.
+That’s why (b=a+2) would also be evaluated and value of b would be 12 after first printf().
+
+int a = 10;
+int b = 15;
+ 
+printf("=%d",(a+1),(b=a+2));
+printf(" %d=",b);
+
+prints --> "=11 12="
+
+15) 
+ int a=9;
+
+ printf("%d %d",++a,a++);  // prints "11 9" as first a++ is evaluated the ++a;
+
+16) Difference between ++*p, *p++ and *++p
+
+Precedence of prefix ++ and * is same. Associativity of both is right to left.
+Precedence of postfix ++ is higher than both * and prefix ++. Associativity of postfix ++ is left to right.
+
+The expression ++*p has two operators of same precedence, so compiler looks for assoiativity.
+Associativity of operators is right to left.
+Therefore the expression is treated as ++(*p). 
+Therefore the output of first program is “arr[0] = 11, arr[1] = 20, *p = 11“. 
+
+The expression *p++ is treated as *(p++) as the precedence of postfix ++ is higher than *. 
+Therefore the output of second program is “arr[0] = 10, arr[1] = 20, *p = 20“.
+
+The expression *++p has two operators of same precedence, so compiler looks for assoiativity. 
+Associativity of operators is right to left.
+Therefore the expression is treated as *(++p).
+Therefore the output of second program is “arr[0] = 10, arr[1] = 20, *p = 20“.
+
+17) https://stackoverflow.com/questions/3238482/pointer-subtraction-confusion
+int fun(char *str1)
+{
+  char *str2 = str1;
+  while(*++str1);
+  return (str1-str2);
+}
+ 
+int main()
+{
+  char *str = "GeeksQuiz";
+  printf("%d", fun(str));
+  return 0;
+} 
+
+prints --> 9
+
+18) What is the difference between char s[] and char *s?
+
+char *s = "Hello world";
+will place "Hello world" in the read-only parts of the memory, and making s a pointer to that makes any writing operation on this memory illegal.
+pointer s is stored in a read-write memory. You can change s to point something else but cannot change value at present s.
+
+While doing:
+
+char s[] = "Hello world";
+puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making
+
+s[0] = 'J';
+legal.
+
+19) 
+char a[100]="aman ";
+printf("%d\n",strlen(a));  // prints no of characters(5)
+printf("%d",sizeof(a)); // prints 100 (max characters allowed = 99, 1 for '\0')
+
+
+20)
+Dynamically allocated in heap segment.
+Strings are stored like other dynamically allocated things in C and can be shared among functions.
+str is stored in writable heap segment. 
+
+char *str;
+int size = 4; /*one extra for ‘\0’*/
+str = (char *)malloc(sizeof(char)*size);
+*(str+0) = 'G'; 
+*(str+1) = 'f';  
+*(str+2) = 'G';  
+*(str+3) = '\0'; 
+*(str+1) = 'n';  /* No problem: String is now GnG */ 
+
+21)
+CASE I)
+The below program works perfectly fine as the string is stored in a shared segment and data stored remains there even after return of getString()
+char *getString()
+{
+  char *str = "GfG"; /* Stored in read only part of shared segment */
+ 
+  /* No problem: remains at address str after getString() returns*/
+  return str;  
+}     
+ int main()
+{
+  printf("%s", getString());  
+  getchar();
+  return 0;
+}
+
+CASE II)
+The below program alse works perfectly fine as the string is stored in heap segment and data stored in heap segment persists even after return of getString()
+char *getString()
+{
+  int size = 4;
+  char *str = (char *)malloc(sizeof(char)*size); /*Stored in heap segment*/
+  *(str+0) = 'G'; 
+  *(str+1) = 'f';  
+  *(str+2) = 'G';
+  *(str+3) = '\0';  
+   
+  /* No problem: string remains at str after getString() returns */   
+  return str;  
+}     
+int main()
+{
+  printf("%s", getString());  
+  getchar();
+  return 0;
+}
+
+CASE III)
+But, the below program may print some garbage data as string is stored in stack frame of function getString() and data may not be there after getString() returns.
+char *getString()
+{
+  char str[] = "GfG"; /* Stored in stack segment */
+ 
+  /* Problem: string may not be present after getSting() returns */
+  return str; 
+}     
+int main()
+{
+  printf("%s", getString());  
+  getchar();
+  return 0;
+}
+
+22) 
+The order in which the parameters to a function are passed is not defined in the standard,
+and is determined by the calling convention used by the compiler.
+
+main()
+{
+    int i=5;
+    printf("%d%d%d%d%d%d",i++,i--,++i,--i,i);  --> compiler dependant
+}
+
+23) 
+User applications are not allowed to perform I/O in user mode - 
+All I/O requests are handled through system calls that must be performed in kernel mode.
+I/O protection is ensured by operating system routine (s
+
+24)
+
+++p->i = ++(p->i)  (-> has higher precendence than ++ preincrement)
+*p->i = *(p->i)
+
+*p->c++ = *((p->c)++)
+
+25)
+
+#include <stdio.h>
+void fun1(char *s1, char *s2) {
+  char *temp;
+  temp = s1;
+  s1 = s2;
+  s2 = temp;
+}
+void fun2(char **s1, char **s2) {
+  char *temp;
+  temp = *s1;
+  *s1 = *s2;
+  *s2 = temp;
+}
+int main() {
+  char *str1 = "Hi", *str2 = "Bye";
+  fun1(str1, str2);
+  printf("%s %s", str1, str2);
+  fun2(&str1, &str2);
+  printf("%s %s", str1, str2);
+  return 0;
+}
+
+// prints "Hi Bye Bye Hi"

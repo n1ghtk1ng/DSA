@@ -1,0 +1,25 @@
+Some Interesting Properties of Euler’s Totient Function
+1) For a prime number p, F(p) is p-1. For example F(5) is 4, F(7) is 6 and F(13) is 12. This is obvious, gcd of all numbers from 1 to p-1 will be 1 because p is a prime.
+
+2) For two numbers a and b, if gcd(a, b) is 1, then F(ab) = F(a) * F(b). For example F(5) is 4 and F(6) is 2, so F(30) must be 8 as 5 and 6 are relatively prime.
+
+3) For any two prime numbers p and q, F(pq) = (p-1)*(q-1). This property is used in RSA algorithm.
+
+4) If p is a prime number, then F(pk) = pk – pk-1. This can be proved using Euler’s product formula.
+
+5) Sum of values of totient functions of all divisors of n is equal to n.
+gausss
+For example, n = 6, the divisors of n are 1, 2, 3 and 6. According to Gauss, sum of F(1) + F(2) + F(3) + F(6) should be 6. We can verify the same by putting values, we get (1 + 1 + 2 + 2) = 6.
+
+6) The most famous and important feature is expressed in Euler’s theorem :
+
+The theorem states that if n and a are coprime
+(or relatively prime) positive integers, then
+
+aF(n) = 1 (mod n) 
+The RSA cryptosystem is based on this theorem:
+
+In the particular case when m is prime say p, Euler’s theorem turns into the so-called Fermat’s little theorem :
+
+ap-1 = 1 (mod p) 
+7) Number of generators of a finite cyclic group under modulo n addition is F(n).

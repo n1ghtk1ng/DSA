@@ -1,0 +1,3 @@
+Encapsulation -->
+
+ek entity se related sart porperites aur methods ka group bnana chahiye.
